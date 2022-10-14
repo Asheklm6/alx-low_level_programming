@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - The begining of C program
+ * main - This is the entry point of every C program
  * Return: (0)
  */
 
