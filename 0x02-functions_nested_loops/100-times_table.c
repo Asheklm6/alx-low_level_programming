@@ -2,13 +2,13 @@
 
 /**
  * print_times_table - Prints a multiplication table up to param
- * @num: The number to be treated 
- * Return: Number matrix  
+ * @num: The number to be treated
+ * Return: Number matrix
  */
 
 void print_times_table(int num)
 {
-	int x, y, output; 
+	int x, y, output;
 
 	if (num >= 0 && num <= 15)
 	{
@@ -43,4 +43,3 @@ void print_times_table(int num)
 		}
 	}
 }
-
