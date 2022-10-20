@@ -1,20 +1,20 @@
 #include "main.h"
 
 /**
- * print_diagonal - draws a diagonal line
- * @n: how many lines to draw
+ * print_square - prints square with # character
+ * @size: size
  *
  * Return: void
  */
-void print_diagonal(int n)
+void print_square(int size)
 {
 	int i, j;
 
 	if (size > 0)
 	{
-		for (i = 0; i < n; i++)
+		for (i = 0; i < size; i++)
 		{
-			for (j = 0; j < i; j++)
+			for (j = 0; j < size; j++)
 			{
 				_putchar(35);
 			}
@@ -23,7 +23,7 @@ void print_diagonal(int n)
 		}
 	}
 	else
-	{
+	}
 		_putchar('\n');
 	}
 }
