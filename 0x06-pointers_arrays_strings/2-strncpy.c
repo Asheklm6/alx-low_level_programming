@@ -2,16 +2,16 @@
 #include "main.h"
 
 /**
- * _strncat - cancatenates two strings
- * @dest: the first string
- * @src: the second string
- * @n: the byte number
+ * _strncpy - copies a string
+ * @dest: the string to be copied into
+ * @src: the string to be copied
+ * @n: the number of bytes
  *
- * Return: a pointer to the resulting string dest
+ * Return: a pointer to dest
  */
-char *_strncat(char *dest, char *src, int n)
+char *_strncpy(char *dest, char *src, int n)
 {
-	char *val = strncat(dest, src, n);
+	char *val = strncpy(dest, src, n);
 
 	return (val);
 }
