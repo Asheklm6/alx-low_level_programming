@@ -1,68 +1,41 @@
-#include <stdlib.h>
-#include <stdio.h>
-/**
- * _isdigit - tells if the string consists of digits
- * @argv: pointer to current item in argument
- * Return: return 0 if all digits, 1 if not all digits.
- */
-int _isdigit(char *argv)
-{
-	int i;
+#include "main.h"
 
-	i = 0;
-	while (argv[i])
-	{
-		if (argv[i] >= '0' && argv[i] <= '9')
-			i++;
-		else
-			return (1);
-	}
-	return (0);
-}
 /**
- * _atoi - converts a string of ascii digits to the values they represent
- * @s: pointer to the source string
- * Return: value of digits
- */
-int _atoi(char *s)
-{
-	int i, result;
-
-	i = result = 0;
-	while (s[i])
-	{
-		if (s[i] >= '0' && s[i] <= '9')
-		{
-			result *= 10;
-			result += (s[i] - '0');
-		}
-		i++;
-	}
-	return (result);
-}
-/**
- * main - main function call
- * @argc: argument count
- * @argv: 2D array of arguments
- * Return: return 0 on success, 98 on failure
+ * main - multiplies two numbers
+ * @argc: number of arguments
+ * @argv: array of arguments
+ *
+ * Return: 0 if successfull
  */
 int main(int argc, char *argv[])
 {
-	int i;
+	unsigned long int res;
 
-	malloc();
+	int i, j, len;
+
 	if (argc != 3)
 	{
 		printf("Error\n");
 		exit(98);
 	}
+
 	for (i = 1; i < argc; i++)
 	{
-		if (_isdigit(argv[i]))
+		len = strlen(argv[i]);
+
+		for (j = 0; j < len; j++)
 		{
-			printf("Error\n");
-			exit(98);
+			if (argv[i][j] < 48 || argv[i][j] > 57)
+			{
+				printf("Error\n");
+				exit(98);
+			}
 		}
 	}
+
+	res = atoi(argv[1]) * atoi(argv[2]);
+
+	printf("%ld\n", res);
+
 	return (0);
 }
