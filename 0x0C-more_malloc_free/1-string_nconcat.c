@@ -1,51 +1,48 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * string_nconcat - concatenates 2 strings
- * @s1: the first string
- * @s2: the second string
- * @n: how many bytes of the second string to concatenate
- * with the first
- *
- * Return: a pointer to the new string or NULL if not successful
+ * string_nconcat - Function that concatnates two strings
+ * @s1: destination file
+ * @s2: source file
+ * @n: int type for size of byte
+ * Return: returns a pointer
  */
+
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *s;
-	unsigned int i, len1, len2;																	if (s1 == NULL)
-		len1 = 0;								else											len1 = strlen(s1);
+	int tracker1, tracker2;
+	int sign = n;
+	char *ptr;
+	int len1, len2;
 
+	if (s1 == NULL)
+		s1 = "";
 	if (s2 == NULL)
-		len2 = 0;
+		s2 = "";
+
+	for (len1 = 0; s1[len1] != '\0'; len1++)
+		;
+	for (len2 = 0; s2[len2] != '\0'; len2++)
+		;
+
+	if (sign >= len2)
+	{
+		sign = len2;
+		ptr = malloc(sizeof(char) * (len1 + len2 + 1));
+	}
 	else
-		len2 = strlen(s2);
-
-	s = malloc((len1 + n + 1) * sizeof(char));
-
-	if (s == NULL)
-
+		ptr = malloc(sizeof(char) * (len1 + n + 1));
+	if (ptr == NULL)
 		return (NULL);
-
-	for (i = 0; i < len1; i++)
-		s[i] = s1[i];
-	for (i = 0; i < n && len2 != 0; i++)
+	for (tracker1 = 0; tracker1 < len1; tracker1++)
 	{
-		s[i + len1] = s2[i];
-
-		if (s2[i] == '\0')
-		{
-			i++;
-			break;
-		}
+		ptr[tracker1] = s1[tracker1];
 	}
-
-	while (i < n)
+	for (tracker2 = 0; tracker2 < sign; tracker2++)
 	{
-		s[i + len1] = '\0';
-		i++;
+		ptr[tracker1++] = s2[tracker2];
 	}
-
-	s[i + len1] = '\0';
-
-	return (s);
+	ptr[tracker1++] = '\0';
+	return (ptr);
 }
