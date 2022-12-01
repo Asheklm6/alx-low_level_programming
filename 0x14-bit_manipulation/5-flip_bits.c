@@ -4,7 +4,7 @@
  * flip_bits - finds number of bits to be flipped
  * from a number to another
  * @n: first number
- * @n: second number
+ * @m: second number
  *
  * Return: number of bits flipped
  */
